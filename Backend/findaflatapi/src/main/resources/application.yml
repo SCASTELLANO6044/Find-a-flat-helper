@@ -1,0 +1,57 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    url: ${FIND_A_FLAT_API_SPRING_DATASOURCE_URL}
+    username: ${FIND_A_FLAT_API_SPRING_DATASOURCE_USERNAME}
+    password: ${FIND_A_FLAT_API_SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: ${FIND_A_FLAT_API_SPRING_DATASOURCE_DRIVER_CLASS_NAME}
+    hikari:
+      maximumPoolSize: ${FIND_A_FLAT_API_SPRING_HIKARI_MAXIMUM_POOL_SIZE}
+
+  h2:
+    console:
+      enabled: ${FIND_A_FLAT_API_SPRING_H2_CONSOLE_ENABLED}
+      path: /h2-console
+
+  sql:
+    init:
+      mode: ${FIND_A_FLAT_API_SPRING_SQL_INIT_MODE}
+
+  jpa:
+    defer-datasource-initialization: ${FIND_A_FLAT_API_SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION}
+    open-in-view: ${FIND_A_FLAT_API_SPRING_JPA_OPEN_IN_VIEW}
+    show-sql: ${FIND_A_FLAT_API_SPRING_JPA_SHOW_SQL}
+    properties:
+      default-schema: ${FIND_A_FLAT_API_SPRING_API_JPA_PROPERTIES_DEFAULT_SCHEMA}
+      hibernate:
+    database-platform: ${FIND_A_FLAT_API_SPRING_JPA_DATABASE_PLATFORM}
+    generate-ddl: ${FIND_A_FLAT_API_SPRING_JPA_GENERATE_DDL}
+    hibernate:
+      ddl-auto: ${FIND_A_FLAT_API_SPRING_JPA_HIBERNATE_DDL_AUTO}
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+springdoc:
+  writer-with-default-pretty-printer: true
+  api-docs:
+    path: /api-docs
+    resolve-schema-properties: false
+  swagger-ui:
+    path: /docs
+    operationsSorter: method
+    enabled: ${FIND_A_FLAT_API_ENABLE_SWAGGER}
+    filter: true
+    display-request-duration: true
+
+server:
+  port: ${FIND_A_FLAT_API_SERVER_PORT}
+
+logging:
+  level:
+    com:
+      findaflatapi: ${FIND_A_FLAT_API_LOGGING_LEVEL_COM_BITBOX_LAW_API}
+    org:
+      springframework: ${FIND_A_FLAT_API_LOGGING_LEVEL_ORG_SPRINGFRAMEWORK}
+    root: ${FIND_A_FLAT_API_LOGGING_LEVEL_ROOT}
